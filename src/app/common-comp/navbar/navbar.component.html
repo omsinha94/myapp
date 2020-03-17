@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="javascript:void(0);">{{langBundle.language.navbar.brandName}}</a>
+  <!-- <a href="https://burst.com" target="_blank" class="email-icon">
+        <div class="icon1"></div>
+        <div class="icon2"></div>
+        <div class="icon3"></div>
+        <div class="icon4"></div>
+        <div class="icon5"></div>
+    </a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link {{(i==0)?'active':''}}"
+        *ngFor="let tabs of langBundle.language.navbar.navTabs;let i=index" href="javascript:void(0);"
+        (click)="tab($event,tabs.tab)">{{tabs.tab}}</a>
+    </div>
+  </div>
+</nav>
+<div class="sidenav">
+  <a *ngFor="let tabs of langBundle.language.navbar.sideTabs;let i=index" href="javascript:void(0);"
+    (click)="tab($event,tabs.tab)" class=" {{(tabs.tab == queryParams)?'active':''}}">{{tabs.tab}}</a>
+</div>

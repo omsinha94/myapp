@@ -1,0 +1,171 @@
+// spacing variables
+$spacing-xs :4px;
+$spacing-sm :8px;
+$spacing-md :12px;
+$spacing-lg :16px;
+
+// color codes
+$red        :#da4a4a;
+$green      :#005600;
+$white      :#ffffff;
+$light-color:#cccccc;
+
+//error colors
+$error              :#a94442;
+$error-background   :#f2dede;
+$error-box-shadow   :#928282;
+
+// responsive screens variables
+$mob-screen : 480px;
+$tab-screen : 767px;
+
+//mixins
+@mixin bordered($width, $color) {
+    border: $width solid $color;
+}
+@mixin boxShadow($x, $y, $z, $blur, $color) {
+    box-shadow          : $x $y $z $blur $color;
+    -moz-box-shadow     : $x $y $z $blur $color;
+    -webkit-box-shadow  : $x $y $z $blur $color;
+}
+.main-wrapper{
+    width           : 50%;
+    margin          : 36px auto 0;
+    padding         : $spacing-lg*2;
+    background      : #f6f6f6;
+    border-radius   : 4px;
+    opacity: 0;
+    @include bordered(1px, $light-color);
+    @include boxShadow(0px, 0px, 6px, 2px, $light-color);
+    transition: 1s all;
+    &.visibility{
+        opacity: 1;
+    }
+    .form-wrapper{
+        .form-group{
+            margin-bottom: 24px;
+            .form-input{
+                position: relative;
+                .error{
+                    left            : 0;
+                    width           : 100%;
+                    color           : $error;
+                    padding         : $spacing-xs;
+                    z-index         : 9;
+                    position        : absolute;
+                    background      : $error-background;
+                    border-radius   : 3px 3px 0px 0px;
+                    @include bordered(1px, #ebccd1);
+                    @include boxShadow(0px, 1px, 7px, 0px, $error-box-shadow);
+                }
+                &.touched{
+                    &.input-invalid,
+                    &.input-valid{
+                        &::after{
+                            content : "";
+                            top     : 0;
+                            width   : 4px;
+                            right   : 0px;
+                            height  : 100%;
+                            z-index : 999;
+                            position: absolute;
+                        }
+                    }
+                    &.input-valid{
+                        &::after{
+                            background: $green;
+                        }
+                    }
+                    &.input-invalid{
+                        &::after{
+                            background: $red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mob-screen){
+    .main-wrapper{
+        width       : 95%;
+        padding     : $spacing-md;
+        margin-top  : $spacing-sm;
+        .form-wrapper{
+            .form-action{
+                text-align: center;
+            }
+        }
+    }
+}
+.email-icon{
+    width   : 40px;
+    height  : 40px;
+    display : block;
+    margin  : auto;
+    position: relative;
+    .icon1,
+    .icon2,
+    .icon3,
+    .icon4{
+        top             : 12px;
+        width           : 100%;
+        height          : 16px;
+        opacity         : .6;
+        z-index         : 1;
+        position        : absolute;
+        background      : #B2CC41;
+        border-radius   : 8px;
+    }
+    .icon2{
+        opacity     : .7;
+        z-index     : 2;
+        transform   : rotate(45deg);
+        background  : #33879E;
+    }
+    .icon3{
+        z-index     : 4;
+        opacity     : .7;
+        transform   : rotate(90deg);
+        background  : #13AC87;
+    }
+    .icon4{
+        z-index     : 3;
+        transform   : rotate(-45deg);
+        background  : #8ABF58;
+    }
+    .icon5{
+        top             : 50%;
+        left            : 50%;
+        width           : 17px;
+        height          : 17px;
+        z-index         : 10;
+        position        : absolute;
+        transform       : translate(-50%,-50%);
+        background      : $white;
+        border-radius   : 50%;
+    }
+}
+
+.shake-element {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.2s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: 3;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px) }
+    10% { transform: translateX(1px)  }
+    20% { transform: translateX(2px) }
+    30% { transform: translateX(3px) }
+    40% { transform: translateX(2px) }
+    50% { transform: translateX(1px)  }
+    60% { transform: translateX(0px) }
+    70% { transform: translateX(-1px)  }
+    80% { transform: translateX(-2px) }
+    90% { transform: translateX(-1px) }
+    100% { transform: translateX(0px)  }
+  }

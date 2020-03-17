@@ -1,0 +1,18 @@
+.main-wrapper{
+    opacity: 0;
+    padding: 16px;
+    transition: 1s all;
+    .form-group{
+        .form-control{
+            width: 20%;
+            display: inline-block;
+        }
+        .btn{
+            vertical-align: top;
+            margin-left: 12px;
+        }
+    }
+    &.visibility{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="main-wrapper">
+    <p>Service works!</p>
+    <form action="form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Type any string here..." #data>
+            <button class="btn btn-info" type="submit" (click)="convert(data.value)">Check</button>
+        </div>
+        <div>
+            <h5>Results</h5>
+            {{message}}
+        </div>
+    </form>
+</div>

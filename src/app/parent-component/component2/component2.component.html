@@ -1,0 +1,60 @@
+<div class="user-table" *ngIf="filterData.length">
+  <h3 class="table-heading text-right">
+    <span class="pull-left">User Data</span>
+    <span class="select-box">
+      <div class="form-group">
+        <select class="form-control" id="exampleFormControlSelect1" (change)="changeSearchCategory($event)">
+          <option value="name">Name</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+    </span>
+    <span class="search-box"><input type="text" class="form-control" placeholder="Search from the below list"
+        name="search" #searchVal (keyup)="filter(searchVal.value)"></span>
+  </h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of userData;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          <span class="field-show" *ngIf="!obj.edit">{{obj.name}}</span>
+          <span class="field-edit" *ngIf="obj.edit"><input class="form-control" type="text" name="name{{i}}"
+              [(ngModel)]="name"></span>
+        </td>
+        <td>
+          <span class="field-show" *ngIf="!obj.edit">{{obj.email}}</span>
+          <span class="field-edit" *ngIf="obj.edit"><input class="form-control" type="text" name="email{{i}}"
+              [(ngModel)]="email"></span>
+        </td>
+        <td>
+          <span class="field-show" *ngIf="!obj.edit">{{obj.password}}</span>
+          <span class="field-edit" *ngIf="obj.edit"><input class="form-control" type="text" name="password{{i}}"
+              [(ngModel)]="password"></span>
+        </td>
+        <td>
+          <span class="action-icon">
+            <a href="javascript:void(0);" *ngIf="!obj.edit"
+              (click)="enableEdit(i);name=obj.name;email=obj.email;password=obj.password"><i
+                class="fa fa-pencil-square-o"></i></a>
+            <a href="javascript:void(0);" class="edit-icon" *ngIf="obj.edit"
+              (click)="submitEdit({name:name,email:email,password:password},i)"><i class="fa fa-hand-pointer-o"></i></a>
+          </span>
+          <span class="action-icon"><a href="javascript:void(0);" (click)="remove(i)"><i
+                class="fa fa-trash"></i></a></span>
+        </td>
+      </tr>
+    </tbody>
+    <div *ngIf="!userData.length">
+      <h5>Data not found</h5>
+    </div>
+  </table>
+</div>

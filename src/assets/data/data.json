@@ -1,0 +1,36 @@
+{
+    "data": {
+        "formGroup": {
+            "class":"form-group",
+            "label":{
+                "for":"name",
+                "id":"name-label"
+            },
+            "formInput":{
+                "class":"form-input",
+                "input":{
+                    "type":"text",
+                    "autocomplete":"off",
+                    "class":"form-control",
+                    "id":"name",
+                    "ariaDescribedby":"nameHelp",
+                    "placeholder":"Enter Name",
+                    "formControlName":"name", 
+                    "required":"true",
+                    "pattern":""
+                },
+                "error":{
+                    "class":"error"
+                }
+            }
+        },
+        "formAction":{
+            "class":"form-action",
+            "button":{
+                "type":"submit",
+                "class":"btn btn-primary",
+                "value":"Submit"
+            }
+        }
+    }
+}

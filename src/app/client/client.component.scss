@@ -1,0 +1,7 @@
+.main-wrapper{
+    opacity: 0;
+    transition: 1s all;
+    &.visibility{
+        opacity: 1;
+    }
+}

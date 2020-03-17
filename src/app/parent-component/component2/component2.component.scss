@@ -1,0 +1,74 @@
+.user-table{
+    width   : 50%;
+    margin  : 32px auto;
+    border  : 1px solid #cccccc;
+    .table-heading{
+        border-bottom   : 1px solid #cccccc;
+        padding  : 12px;
+        margin: 0;
+        .select-box,
+        .search-box{
+            display: inline-block;
+            padding: 0 4px;
+            .form-group{
+                display: inline-block;
+                margin: 0;
+            }
+        }
+    }
+    .table{
+        td{
+            vertical-align: middle;
+        }
+        .action-icon{
+            a{
+                padding: 6px;
+                background: #e0e0e0;
+                margin-right: 4px;
+                border-radius: 3px;
+                color: #337ab7;
+                transition: .2s all;
+                &:hover{
+                    color: #ffffff;
+                    background: #337ab7;
+                }
+                &.edit-icon{
+                    padding: 6px 4px;
+                }
+            }
+            &:last-child{
+                a{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .user-table{
+        width   : 95%;
+    }
+}
+
+.shake-element:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.2s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: 3;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px) }
+    10% { transform: translateX(1px)  }
+    20% { transform: translateX(2px) }
+    30% { transform: translateX(3px) }
+    40% { transform: translateX(2px) }
+    50% { transform: translateX(1px)  }
+    60% { transform: translateX(0px) }
+    70% { transform: translateX(-1px)  }
+    80% { transform: translateX(-2px) }
+    90% { transform: translateX(-1px) }
+    100% { transform: translateX(0px)  }
+  }
